@@ -4,20 +4,24 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "evento")
 public class Evento {
     
     @Id
     @Column(name ="ev_id")
+    @GeneratedValue
     private Integer idEvento;
 
 	@Column(name ="ev_nome")

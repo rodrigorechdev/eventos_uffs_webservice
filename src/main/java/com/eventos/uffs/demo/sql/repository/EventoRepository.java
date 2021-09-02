@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EventoRepository extends JpaRepository<Evento, Integer> {
     
-    //public <S> Evento save(Evento evento);
 }

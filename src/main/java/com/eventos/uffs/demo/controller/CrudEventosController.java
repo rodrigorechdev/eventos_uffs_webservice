@@ -21,9 +21,15 @@ public class CrudEventosController {
     @Autowired
     EventoRepository eventoRepository;
 
-    @RequestMapping(value = "create", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Evento> createEventos(@RequestBody Evento evento) {
             var eventoSalvo =  eventoRepository.save(evento);
-            return new ResponseEntity<>(eventoSalvo, HttpStatus.CREATED);       
+            return new ResponseEntity<>(eventoSalvo, HttpStatus.CREATED);
     }
+
+    // @RequestMapping(value = "{idEvento}", method = RequestMethod.GET, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    // public ResponseEntity<Evento> createEventos(@PathVariable Long idEvento) {
+    //         var eventoSalvo =  eventoRepository.save(evento);
+    //         return new ResponseEntity<>(eventoSalvo, HttpStatus.CREATED);
+    // }
 }

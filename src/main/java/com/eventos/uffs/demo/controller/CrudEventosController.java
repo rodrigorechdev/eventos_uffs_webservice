@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @RequestMapping("eventos")
@@ -26,4 +28,12 @@ public class CrudEventosController {
             Evento eventoSalvo =  eventoRepository.save(evento);
             return new ResponseEntity<>(eventoSalvo, HttpStatus.CREATED);
     }
-}
+
+    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Evento> updateEventos(@RequestBody Evento evento) { 
+            Evento eventoAtualizado =  eventoRepository.save(evento);
+
+            return new ResponseEntity<>(eventoAtualizado, HttpStatus.OK);
+    }
+
+}   

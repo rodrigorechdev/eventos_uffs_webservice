@@ -35,6 +35,9 @@ public class Evento {
 
 	@Column(name = "ev_horas")
 	private String horario;
+	
+	@Column(name = "ev_quantidade_horas")
+	private Double quantidadeHoras;
 
     @Nullable
     @Column(name = "ev_custo")

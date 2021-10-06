@@ -3,6 +3,8 @@ package com.eventos.uffs.demo.controller;
 import com.eventos.uffs.demo.sql.entity.Evento;
 import com.eventos.uffs.demo.sql.repository.EventoRepository;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,9 +23,14 @@ public class CrudEventosController {
     @Autowired
     EventoRepository eventoRepository;
 
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Evento>> getEventos() {
+        return new ResponseEntity<List<Evento>>(eventoRepository.findAll(), HttpStatus.OK);
+    }
+    
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Evento> createEventos(@RequestBody Evento evento) {
-            Evento eventoSalvo =  eventoRepository.save(evento);
-            return new ResponseEntity<>(eventoSalvo, HttpStatus.CREATED);
+    	Evento eventoSalvo =  eventoRepository.save(evento);
+    	return new ResponseEntity<>(eventoSalvo, HttpStatus.CREATED);
     }
 }

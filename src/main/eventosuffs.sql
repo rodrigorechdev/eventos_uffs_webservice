@@ -1,8 +1,6 @@
 --psql
-drop database eventosUffs;
-create database eventosUffs;
-
-\c eventosUffs
+drop database eventos_uffs;
+create database eventos_uffs;
 
 CREATE TABLE modalidade(
 	mod_id SERIAL,
@@ -20,7 +18,7 @@ CREATE TABLE evento(
 	ev_id SERIAL,
 	ev_nome VARCHAR(50) NOT NULL,
 	ev_data DATE DEFAULT CURRENT_DATE NOT NULL,
-	ev_quantidadeHoras DOUBLE PRECISION NOT NULL,
+	ev_quantidade_horas DOUBLE PRECISION NOT NULL,
 	ev_horas VARCHAR(5) NOT NULL,
 	ev_custo DOUBLE PRECISION,
 	mod_id INTEGER NOT NULL,
@@ -46,7 +44,7 @@ CREATE TABLE usuario(
 	user_id_cargo INTEGER NOT NULL,
 		
 	PRIMARY KEY(user_id),
-	FOREIGN KEY(user_id_cargo) REFERENCES cargos(cargo_id)	
+	FOREIGN KEY(user_id_cargo) REFERENCES cargo(cargo_id)	
 );
 
 
@@ -59,11 +57,11 @@ VALUES ('saude'),('tecnologia'),('didatica');
 
 SELECT * FROM modalidade;
 
-INSERT INTO evento(ev_nome, mod_id, ev_data, area_id, ev_custo, ev_horas)
-VALUES ('semana academica computacao', 2, '2021-10-03', 2, 50.00, 5);
+INSERT INTO evento(ev_nome, mod_id, ev_data, area_id, ev_custo, ev_horas, ev_quantidade_horas)
+VALUES ('semana academica computacao', 2, '2021-10-03', 2, 50.00, 5, 1);
 
-INSERT INTO evento(ev_nome, mod_id, area_id, ev_horas)
-VALUES ('calourada', 3, 2, 6);
+INSERT INTO evento(ev_nome, mod_id, area_id, ev_horas, ev_quantidade_horas)
+VALUES ('calourada', 3, 2, 6, 1);
 
 
 
@@ -73,7 +71,6 @@ VALUES ('Administrador'),('Gestor'),('Usuário');
 INSERT INTO usuarios(user_nome, user_email, user_senha,user_id_cargo) VALUES ('Fulano de Tal','fuluano@evento.com.br','Ful4n0@T4l', 1);
 INSERT INTO usuarios(user_nome, user_email, user_senha,user_id_cargo) VALUES ('Joao Da Silva','joao@evento.com.br','Jo4o@T4l', 2);
 INSERT INTO usuarios(user_nome, user_email, user_senha,user_id_cargo) VALUES ('Ciclano de Tal','cliclano@evento.com.br','cicl4n0@T4l', 3);
-
 
 
 

@@ -1,7 +1,5 @@
 package com.eventos.uffs.demo.sql.entity;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +11,8 @@ import org.springframework.lang.Nullable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.Date;
 
 @Data
 @Entity
@@ -29,15 +29,14 @@ public class Evento {
 	@Column(name = "ev_nome")
     private String nome;
 
-    @Nullable
 	@Column(name = "ev_data")
     private Date data = new Date();
 
-	@Column(name = "ev_horas")
-	private String horario;
-	
-	@Column(name = "ev_quantidade_horas")
-	private Double quantidadeHoras;
+	@Column(name = "ev_horario")
+    private String horario;
+
+    @Column(name = "ev_quantidade_horas")
+    private Double quantidadeHoras;
 
     @Nullable
     @Column(name = "ev_custo")

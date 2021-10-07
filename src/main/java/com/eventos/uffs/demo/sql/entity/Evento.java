@@ -32,7 +32,7 @@ public class Evento {
 	@Column(name = "ev_data")
     private Date data = new Date();
 
-	@Column(name = "ev_horario")
+	@Column(name = "ev_horas")
     private String horario;
 
     @Column(name = "ev_quantidade_horas")

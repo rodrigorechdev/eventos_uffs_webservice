@@ -47,4 +47,12 @@ public class Evento {
 
     @Column(name = "area_id")
     private Integer areaConhecimentoId;
+    
+    public Integer getId() {
+    	return idEvento;
+    }
+    
+    public String getNome() {
+    	return nome;
+    }
 }

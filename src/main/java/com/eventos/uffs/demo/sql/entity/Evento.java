@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.lang.Nullable;
@@ -32,7 +34,7 @@ public class Evento {
 	@Column(name = "ev_data")
     private Date data = new Date();
 
-	@Column(name = "ev_horas")
+	@Column(name = "ev_horario")
     private String horario;
 
     @Column(name = "ev_quantidade_horas")
@@ -42,17 +44,12 @@ public class Evento {
     @Column(name = "ev_custo")
     private Double custo;
 
-    @Column(name = "mod_id")
-    private Integer modalidadeId;
+    @ManyToOne
+	@JoinColumn(name = "mod_id")
+    private Modalidade modalidade;
 
-    @Column(name = "area_id")
-    private Integer areaConhecimentoId;
+    @ManyToOne
+	@JoinColumn(name = "area_id")
+    private AreaConhecimento areaConhecimento;
     
-    public Integer getId() {
-    	return idEvento;
-    }
-    
-    public String getNome() {
-    	return nome;
-    }
 }

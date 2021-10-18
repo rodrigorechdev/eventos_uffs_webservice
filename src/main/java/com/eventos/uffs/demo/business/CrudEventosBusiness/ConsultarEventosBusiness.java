@@ -40,12 +40,12 @@ public class ConsultarEventosBusiness {
         }
         if(param.getAreaConhecimentoId() != null) {
             eventos = eventos.stream()
-                        .filter(evento -> param.getAreaConhecimentoId()==evento.getAreaConhecimentoId())
+                        .filter(evento -> param.getAreaConhecimentoId()==evento.getAreaConhecimento().getIdArea())
                         .collect(Collectors.toList());
         }
         if(param.getModalidadeId() != null) {
             eventos = eventos.stream()
-                        .filter(evento -> param.getModalidadeId().equals(evento.getModalidadeId()))
+                        .filter(evento -> param.getModalidadeId().equals(evento.getModalidade().getIdModalidade()))
                         .collect(Collectors.toList());
         }
 

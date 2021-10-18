@@ -19,7 +19,7 @@ CREATE TABLE evento(
 	ev_nome VARCHAR(50) NOT NULL,
 	ev_data DATE DEFAULT CURRENT_DATE NOT NULL,
 	ev_quantidade_horas DOUBLE PRECISION NOT NULL,
-	ev_horas VARCHAR(5) NOT NULL,
+	ev_horario VARCHAR(5) NOT NULL,
 	ev_custo DOUBLE PRECISION,
 	mod_id INTEGER NOT NULL,
 	area_id INTEGER NOT NULL,
@@ -57,47 +57,17 @@ VALUES ('saude'),('tecnologia'),('didatica');
 
 SELECT * FROM modalidade;
 
-INSERT INTO evento(ev_nome, mod_id, ev_data, area_id, ev_custo, ev_horas, ev_quantidade_horas)
+INSERT INTO evento(ev_nome, mod_id, ev_data, area_id, ev_custo, ev_horario, ev_quantidade_horas)
 VALUES ('semana academica computacao', 2, '2021-10-03', 2, 50.00, 5, 1);
 
-INSERT INTO evento(ev_nome, mod_id, area_id, ev_horas, ev_quantidade_horas)
+INSERT INTO evento(ev_nome, mod_id, area_id, ev_horario, ev_quantidade_horas)
 VALUES ('calourada', 3, 2, 6, 1);
 
 
 
-INSERT INTO cargos(cargo_nome)
+INSERT INTO cargo(cargo_nome)
 VALUES ('Administrador'),('Gestor'),('Usuário');
 
-INSERT INTO usuarios(user_nome, user_email, user_senha,user_id_cargo) VALUES ('Fulano de Tal','fuluano@evento.com.br','Ful4n0@T4l', 1);
-INSERT INTO usuarios(user_nome, user_email, user_senha,user_id_cargo) VALUES ('Joao Da Silva','joao@evento.com.br','Jo4o@T4l', 2);
-INSERT INTO usuarios(user_nome, user_email, user_senha,user_id_cargo) VALUES ('Ciclano de Tal','cliclano@evento.com.br','cicl4n0@T4l', 3);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+INSERT INTO usuario(user_nome, user_email, user_senha,user_id_cargo) VALUES ('Fulano de Tal','fuluano@evento.com.br','Ful4n0@T4l', 1);
+INSERT INTO usuario(user_nome, user_email, user_senha,user_id_cargo) VALUES ('Joao Da Silva','joao@evento.com.br','Jo4o@T4l', 2);
+INSERT INTO usuario(user_nome, user_email, user_senha,user_id_cargo) VALUES ('Ciclano de Tal','cliclano@evento.com.br','cicl4n0@T4l', 3);

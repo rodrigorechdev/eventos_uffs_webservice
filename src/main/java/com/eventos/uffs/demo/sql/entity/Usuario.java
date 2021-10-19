@@ -1,14 +1,12 @@
 package com.eventos.uffs.demo.sql.entity;
 
-// import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-// import org.springframework.lang.Nullable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,6 +32,7 @@ public class Usuario {
     @Column(name = "user_senha")
     private String senhaUsuario;
 
-    @Column(name = "user_id_cargo")
-    private String cargoId;
+    @ManyToOne
+	@JoinColumn(name = "user_id_cargo")
+    private Cargo cargo;
 }

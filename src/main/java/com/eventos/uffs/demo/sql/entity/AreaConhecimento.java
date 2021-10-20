@@ -3,6 +3,7 @@ package com.eventos.uffs.demo.sql.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -19,7 +20,7 @@ public class AreaConhecimento {
     
     @Id
     @Column(name = "area_id")
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idArea;
 
 	@Column(name = "area_nome")
